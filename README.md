@@ -22,7 +22,8 @@ To get a local copy up and running follow these simple example steps.
 - Open the command prompt in this directory.
 - Write `git clone https://github.com/kelvinbush/real_time_search_analytics.git`.
 - Go to the repository folder in your command prompt `cd real_time_search_analytics`.
-- run `bundle install` to install dependencies
+- run `bundle install` to install dependencies.
+- run `rails db:seed` to load the default articles.
 - run `rails s` to start the local app.
 - run `rspec` to run the tests.
 

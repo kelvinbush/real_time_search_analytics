@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[show edit update destroy]
 
   # GET /articles or /articles.json
   def index
@@ -12,15 +14,14 @@ class ArticlesController < ApplicationController
     end
 
     if turbo_frame_request?
-      render partial: "articles", locals: { articles: @articles }
+      render partial: 'articles', locals: { articles: @articles }
     else
       render :index
     end
   end
 
   # GET /articles/1 or /articles/1.json
-  def show
-  end
+  def show; end
 
   # GET /articles/new
   def new
@@ -28,8 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /articles or /articles.json
   def create
@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
+        format.html { redirect_to article_url(@article), notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.html { redirect_to article_url(@article), notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,23 +77,18 @@ class ArticlesController < ApplicationController
   end
 
   def save_search(text)
-    if text.length == 1
-      return
-    end
-    search = current_user.searches.new(text: text)
+    return if text.length == 1
+
+    search = current_user.searches.new(text:)
     searches = current_user.searches.word_similarity_like(text)
-    if searches.empty?
-      search.save
-    else
+    unless searches.empty?
       searches.each do |word|
         if text.start_with?(word.text) && text.length > word.text.length
           word.destroy
-        elsif text.start_with?(word.text) && text.length < word.text.length
-          return
         end
       end
-      search.save
     end
+    search.save
   end
 
   # Only allow a list of trusted parameters through.
