@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: real_time_search_hj_development
-  username: <%= Rails.application.credentials.dig(:database, :username) %>
-  password: <%= Rails.application.credentials.dig(:database, :password) %>
+  username: postgres
+  password: m@likopo
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,6 +60,8 @@ development:
 test:
   <<: *default
   database: real_time_search_hj_test
+  username: postgres
+  password: m@likopo
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
