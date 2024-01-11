@@ -5,7 +5,7 @@
 
 ## Demo
 
-Check out the live app [here](https://calm-stream-19200.herokuapp.com/)
+Check out the live app [here](https://floating-hamlet-20335-3f091da84f94.herokuapp.com/)
 
 ## Built With
 

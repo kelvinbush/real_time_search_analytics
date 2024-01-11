@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: real_time_search_hj_development
-  username: postgres
-  password: m@likopo
+  username: kelvin
+  password: password
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
