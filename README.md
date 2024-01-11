@@ -32,8 +32,7 @@ To get a local copy up and running follow these simple example steps.
 👤 **Kelvin Bush**
 
 - GitHub: [@kelvinbush](https://github.com/kelvinbush)
-- Twitter: [@kelvin_bush_](https://twitter.com/kelvin_bush_)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kelvinbushwachiye/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kelvinbush/)
 
 ## 🤝 Contributing
 
